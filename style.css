@@ -1,0 +1,97 @@
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background: #222;
+  color: #ddd;
+}
+
+section>h2 {
+  margin-top: 10vh;
+  text-align: center;
+}
+
+.folder {
+  width: 80vw;
+  height: 60vh;
+  border: 1px solid gainsboro;
+  margin: 10vh auto;
+}
+
+.circles::before {
+  position: absolute;
+  content: '';
+  left: 5px;
+  top: 48%;
+  right: 0;
+  height: 5px;
+  background: var(--done-color);
+}
+
+.circles {
+  position: relative;
+  --done-color: #acf;
+  margin-top: 32%;
+  display: flex;
+  gap: 150px;
+  list-style: none;
+}
+
+.circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: var(--done-color);
+  position: relative;
+}
+
+.active {
+  --done-color: #ffa
+}
+
+.active ~ .circle {
+  --done-color: #ddd
+}
+
+.circle>.wrapper {
+  position: absolute;
+  left: 50%;
+  bottom: 90%;
+}
+
+.circle>.wrapper::before {
+  content: '';
+  background: var(--done-color);
+  display: block;
+  width: 3px;
+  top: 68px;
+  bottom: 0;
+  position: absolute;
+}
+
+.points {
+  padding-left: 33.5px;
+  width: 110px;
+  list-style: none;
+}
+
+.point {
+  font-size: 12px;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.point::before {
+  position: absolute;
+  right: calc(100% + 25px);
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 3px solid var(--done-color);
+  background: #000;
+}
+
+.active .point::before,
+.active ~ .circle .point::before {
+  background: var(--done-color);
+}
